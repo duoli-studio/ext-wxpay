@@ -1,0 +1,23 @@
+{
+	"name": "poppy/ext-wxpay",
+	"description": "Poppy Weixin Pay Extension.",
+	"type": "poppy-extension",
+	"authors": [
+		{
+			"name": "Mark Zhao",
+			"email": "zhaody901@126.com"
+		}
+	],
+	"require": {
+		"php": ">=7.0.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Poppy\\Extension\\WxPay\\": "src/"
+		}
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "dev"
+}
