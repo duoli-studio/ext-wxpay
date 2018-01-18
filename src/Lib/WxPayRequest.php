@@ -1,7 +1,8 @@
 <?php namespace Poppy\Extension\Wxpay\Lib;
 
-use App\Lemon\Repositories\Sour\LmEnv;
+
 use Curl\Curl;
+use Poppy\Framework\Helper\EnvHelper;
 
 /**
  * 接口访问类，包含所有微信支付API列表的封装，
@@ -87,7 +88,7 @@ class WxPayRequest
 		$inputObj->SetMch_id($this->config->getMchId());
 
 		// 终端ip
-		$inputObj->SetSpbill_create_ip(LmEnv::ip());
+		$inputObj->SetSpbill_create_ip(EnvHelper::ip());
 
 		// 随机字符串
 		$inputObj->SetNonce_str(self::getNonceStr());
