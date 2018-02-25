@@ -1,5 +1,11 @@
 <?php namespace Poppy\Extension\Wxpay\Lib;
 
+/*
+|--------------------------------------------------------------------------
+| 微信支付动态设置APPID和MCHID等参数
+|--------------------------------------------------------------------------
+*/
+
 /**
  *    配置账号信息
  */
@@ -34,27 +40,42 @@ class WxPayConfig
 
 	/*
 	|--------------------------------------------------------------------------
+	| 代理设置
+	|--------------------------------------------------------------------------
+	| 这里设置代理机器，只有需要代理的时候才设置，不需要代理，请设置为0.0.0.0和0
+	| 本例程通过curl使用HTTP POST方法，此处可修改代理服务器，
+	| 默认 HOST = 0.0.0.0 和 PORT = 0，此时不开启代理（如有需要才设置）
+	|
+	*/
+	/**
+	 * @var string curl代理Host
+	 */
+	private $proxyHost = '0.0.0.0';
+
+	/**
+	 * @var int curl代理 端口
+	 */
+	private $proxyPort = 0;
+
+	/*
+	|--------------------------------------------------------------------------
 	| 证书路径设置
 	|--------------------------------------------------------------------------
-	| TODO：设置商户证书路径
+	| 设置商户证书路径
 	| 证书路径,注意应该填写绝对路径（仅退款、撤销订单时需要，可登录商户平台下载，
 	| API证书下载地址：https://pay.weixin.qq.com/index.php/account/api_cert，下载之前需要安装商户操作证书）
 	|
 	*/
-	const SSLCERT_PATH = '../cert/apiclient_cert.pem';
-	const SSLKEY_PATH  = '../cert/apiclient_key.pem';
 
-	/*
-	|--------------------------------------------------------------------------
-	| curl代理设置
-	|--------------------------------------------------------------------------
-	| TODO：这里设置代理机器，只有需要代理的时候才设置，不需要代理，请设置为0.0.0.0和0
-	| 本例程通过curl使用HTTP POST方法，此处可修改代理服务器，
-	| 默认CURL_PROXY_HOST=0.0.0.0和CURL_PROXY_PORT=0，此时不开启代理（如有需要才设置）
-	|
-	*/
-	const CURL_PROXY_HOST = "0.0.0.0";//"10.152.18.220";
-	const CURL_PROXY_PORT = 0;//8080;
+	/**
+	 * @var string 证书pem格式
+	 */
+	private $sslCertPath = '';
+
+	/**
+	 * @var string 证书密钥pem格式
+	 */
+	private $sslKeyPath = '';
 
 
 	/*
@@ -68,19 +89,6 @@ class WxPayConfig
 	|
 	*/
 	const REPORT_LEVEL = 1;
-
-	/*
-	|--------------------------------------------------------------------------
-	| 通知回调的地址
-	|--------------------------------------------------------------------------
-	*/
-	const NOTIFY_URL = '';
-
-	/*
-	|--------------------------------------------------------------------------
-	| 微信支付动态设置APPID和MCHID等参数
-	|--------------------------------------------------------------------------
-	*/
 
 
 	public function setAppId($app_id)
@@ -122,4 +130,69 @@ class WxPayConfig
 	{
 		return $this->appSecret;
 	}
+
+	/**
+	 * @return string
+	 */
+	public function getProxyHost(): string
+	{
+		return $this->proxyHost;
+	}
+
+	/**
+	 * @param string $proxy_host
+	 */
+	public function setProxyHost(string $proxy_host)
+	{
+		$this->proxyHost = $proxy_host;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getProxyPort(): int
+	{
+		return $this->proxyPort;
+	}
+
+	/**
+	 * @param int $proxy_port
+	 */
+	public function setProxyPort(int $proxy_port)
+	{
+		$this->proxyPort = $proxy_port;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSslCertPath(): string
+	{
+		return $this->sslCertPath;
+	}
+
+	/**
+	 * @param string $sslCertPath
+	 */
+	public function setSslCertPath(string $sslCertPath)
+	{
+		$this->sslCertPath = $sslCertPath;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSslKeyPath(): string
+	{
+		return $this->sslKeyPath;
+	}
+
+	/**
+	 * @param string $sslKeyPath
+	 */
+	public function setSslKeyPath(string $sslKeyPath)
+	{
+		$this->sslKeyPath = $sslKeyPath;
+	}
+
 }

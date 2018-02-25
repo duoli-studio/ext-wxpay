@@ -197,6 +197,21 @@ class WxPayRequest
 		elseif (!$inputObj->IsOp_user_idSet()) {
 			throw new WxPayException("退款申请接口中，缺少必填参数op_user_id！");
 		}
+
+		if (!$this->config->getSslKeyPath()) {
+			throw new WxPayException("退款申请接口中，缺少SSL密钥配置！");
+		}
+		if (!$this->config->getSslCertPath()) {
+			throw new WxPayException("退款申请接口中，缺少SSL证书配置！");
+		}
+
+		if (!file_exists($this->config->getSslKeyPath())) {
+			throw new WxPayException("SSL密钥文件不存在！");
+		}
+		if (!file_exists($this->config->getSslCertPath())) {
+			throw new WxPayException("SSL 证书文件不存在！");
+		}
+
 		$inputObj->SetAppid($this->config->getAppId());//公众账号ID
 		$inputObj->SetMch_id($this->config->getMchId());//商户号
 		$inputObj->SetNonce_str(self::getNonceStr());//随机字符串
@@ -503,6 +518,7 @@ class WxPayRequest
 	 * @param string $code
 	 * @return array|mixed
 	 * @throws WxPayException
+	 * @throws \ErrorException
 	 */
 	public function code2Session($code)
 	{
@@ -555,10 +571,13 @@ class WxPayRequest
 		curl_setopt($ch, CURLOPT_TIMEOUT, $second);
 
 		//如果有配置代理这里就设置代理
-		if (WxPayConfig::CURL_PROXY_HOST != "0.0.0.0"
-			&& WxPayConfig::CURL_PROXY_PORT != 0) {
-			curl_setopt($ch, CURLOPT_PROXY, WxPayConfig::CURL_PROXY_HOST);
-			curl_setopt($ch, CURLOPT_PROXYPORT, WxPayConfig::CURL_PROXY_PORT);
+		if (
+			$this->config->getProxyHost() != "0.0.0.0"
+			&&
+			$this->config->getProxyPort() != 0
+		) {
+			curl_setopt($ch, CURLOPT_PROXY, $this->config->getProxyHost());
+			curl_setopt($ch, CURLOPT_PROXYPORT, $this->config->getProxyPort());
 		}
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
@@ -572,9 +591,9 @@ class WxPayRequest
 			//设置证书
 			//使用证书：cert 与 key 分别属于两个.pem文件
 			curl_setopt($ch, CURLOPT_SSLCERTTYPE, 'PEM');
-			curl_setopt($ch, CURLOPT_SSLCERT, WxPayConfig::SSLCERT_PATH);
+			curl_setopt($ch, CURLOPT_SSLCERT, $this->config->getSslCertPath());
 			curl_setopt($ch, CURLOPT_SSLKEYTYPE, 'PEM');
-			curl_setopt($ch, CURLOPT_SSLKEY, WxPayConfig::SSLKEY_PATH);
+			curl_setopt($ch, CURLOPT_SSLKEY, $this->config->getSslKeyPath());
 		}
 		//post提交方式
 		curl_setopt($ch, CURLOPT_POST, true);

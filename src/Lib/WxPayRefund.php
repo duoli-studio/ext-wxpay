@@ -3,6 +3,7 @@
 /**
  * 提交退款输入对象
  * @author widyhu
+ * @url https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_4
  */
 class WxPayRefund extends WxPayDataBase
 {
@@ -187,6 +188,16 @@ class WxPayRefund extends WxPayDataBase
 	public function SetOut_refund_no($value)
 	{
 		$this->values['out_refund_no'] = $value;
+	}
+
+	/**
+	 * 退款原因
+	 * 若商户传入，会在下发给用户的退款消息中体现退款原因
+	 * @param string $value
+	 */
+	public function setRefundDesc($value)
+	{
+		$this->values['refund_desc'] = $value;
 	}
 
 	/**
