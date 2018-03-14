@@ -34,7 +34,6 @@ class WxPayReport extends WxPayDataBase
 		return array_key_exists('appid', $this->values);
 	}
 
-
 	/**
 	 * 设置微信支付分配的商户号
 	 *
@@ -62,7 +61,6 @@ class WxPayReport extends WxPayDataBase
 	{
 		return array_key_exists('mch_id', $this->values);
 	}
-
 
 	/**
 	 * 设置微信支付分配的终端设备号，商户自定义
@@ -92,7 +90,6 @@ class WxPayReport extends WxPayDataBase
 		return array_key_exists('device_info', $this->values);
 	}
 
-
 	/**
 	 * 设置随机字符串，不长于32位。推荐随机数生成算法
 	 *
@@ -120,7 +117,6 @@ class WxPayReport extends WxPayDataBase
 	{
 		return array_key_exists('nonce_str', $this->values);
 	}
-
 
 	/**
 	 * 设置上报对应的接口的完整URL，类似：https://api.mch.weixin.qq.com/pay/unifiedorder对于被扫支付，为更好的和商户共同分析一次业务行为的整体耗时情况，对于两种接入模式，请都在门店侧对一次被扫行为进行一次单独的整体上报，上报URL指定为：https://api.mch.weixin.qq.com/pay/micropay/total关于两种接入模式具体可参考本文档章节：被扫支付商户接入模式其它接口调用仍然按照调用一次，上报一次来进行。
@@ -150,7 +146,6 @@ class WxPayReport extends WxPayDataBase
 		return array_key_exists('interface_url', $this->values);
 	}
 
-
 	/**
 	 * 设置接口耗时情况，单位为毫秒
 	 *
@@ -178,7 +173,6 @@ class WxPayReport extends WxPayDataBase
 	{
 		return array_key_exists('execute_time_', $this->values);
 	}
-
 
 	/**
 	 * 设置SUCCESS/FAIL此字段是通信标识，非交易标识，交易是否成功需要查看trade_state来判断
@@ -208,7 +202,6 @@ class WxPayReport extends WxPayDataBase
 		return array_key_exists('return_code', $this->values);
 	}
 
-
 	/**
 	 * 设置返回信息，如非空，为错误原因签名失败参数格式校验错误
 	 *
@@ -236,7 +229,6 @@ class WxPayReport extends WxPayDataBase
 	{
 		return array_key_exists('return_msg', $this->values);
 	}
-
 
 	/**
 	 * 设置SUCCESS/FAIL
@@ -266,7 +258,6 @@ class WxPayReport extends WxPayDataBase
 		return array_key_exists('result_code', $this->values);
 	}
 
-
 	/**
 	 * 设置ORDERNOTEXIST—订单不存在SYSTEMERROR—系统错误
 	 *
@@ -294,7 +285,6 @@ class WxPayReport extends WxPayDataBase
 	{
 		return array_key_exists('err_code', $this->values);
 	}
-
 
 	/**
 	 * 设置结果信息描述
@@ -324,7 +314,6 @@ class WxPayReport extends WxPayDataBase
 		return array_key_exists('err_code_des', $this->values);
 	}
 
-
 	/**
 	 * 设置商户系统内部的订单号,商户可以在上报时提供相关商户订单号方便微信支付更好的提高服务质量。
 	 *
@@ -353,7 +342,6 @@ class WxPayReport extends WxPayDataBase
 		return array_key_exists('out_trade_no', $this->values);
 	}
 
-
 	/**
 	 * 设置发起接口调用时的机器IP
 	 *
@@ -381,7 +369,6 @@ class WxPayReport extends WxPayDataBase
 	{
 		return array_key_exists('user_ip', $this->values);
 	}
-
 
 	/**
 	 * 设置系统时间，格式为yyyyMMddHHmmss，如2009年12月27日9点10分10秒表示为20091227091010。其他详见时间规则

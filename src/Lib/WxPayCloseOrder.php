@@ -34,7 +34,6 @@ class WxPayCloseOrder extends WxPayDataBase
 		return array_key_exists('appid', $this->values);
 	}
 
-
 	/**
 	 * 设置微信支付分配的商户号
 	 *
@@ -63,7 +62,6 @@ class WxPayCloseOrder extends WxPayDataBase
 		return array_key_exists('mch_id', $this->values);
 	}
 
-
 	/**
 	 * 设置商户系统内部的订单号
 	 *
@@ -91,7 +89,6 @@ class WxPayCloseOrder extends WxPayDataBase
 	{
 		return array_key_exists('out_trade_no', $this->values);
 	}
-
 
 	/**
 	 * 设置商户系统内部的订单号,32个字符内、可包含字母, 其他说明见商户订单号

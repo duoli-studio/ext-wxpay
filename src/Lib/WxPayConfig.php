@@ -11,7 +11,6 @@
  */
 class WxPayConfig
 {
-
 	/**
 	 * 绑定支付的APPID（必须配置，开户邮件中可查看）
 	 * @var string
@@ -77,7 +76,6 @@ class WxPayConfig
 	 */
 	private $sslKeyPath = '';
 
-
 	/*
 	|--------------------------------------------------------------------------
 	| 上报信息配置
@@ -89,7 +87,6 @@ class WxPayConfig
 	|
 	*/
 	const REPORT_LEVEL = 1;
-
 
 	public function setAppId($app_id)
 	{
@@ -194,5 +191,4 @@ class WxPayConfig
 	{
 		$this->sslKeyPath = $sslKeyPath;
 	}
-
 }

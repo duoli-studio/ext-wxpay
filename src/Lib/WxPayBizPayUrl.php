@@ -34,7 +34,6 @@ class WxPayBizPayUrl extends WxPayDataBase
 		return array_key_exists('appid', $this->values);
 	}
 
-
 	/**
 	 * 设置微信支付分配的商户号
 	 *

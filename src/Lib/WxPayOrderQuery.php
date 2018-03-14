@@ -34,7 +34,6 @@ class WxPayOrderQuery extends WxPayDataBase
 		return array_key_exists('appid', $this->values);
 	}
 
-
 	/**
 	 * 设置微信支付分配的商户号
 	 *
@@ -62,7 +61,6 @@ class WxPayOrderQuery extends WxPayDataBase
 	{
 		return array_key_exists('mch_id', $this->values);
 	}
-
 
 	/**
 	 * 设置微信的订单号，优先使用
@@ -92,7 +90,6 @@ class WxPayOrderQuery extends WxPayDataBase
 		return array_key_exists('transaction_id', $this->values);
 	}
 
-
 	/**
 	 * 设置商户系统内部的订单号，当没提供transaction_id时需要传这个。
 	 *
@@ -120,7 +117,6 @@ class WxPayOrderQuery extends WxPayDataBase
 	{
 		return array_key_exists('out_trade_no', $this->values);
 	}
-
 
 	/**
 	 * 设置随机字符串，不长于32位。推荐随机数生成算法

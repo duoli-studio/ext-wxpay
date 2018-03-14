@@ -33,7 +33,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 		return array_key_exists('appid', $this->values);
 	}
 
-
 	/**
 	 * 设置微信支付分配的商户号
 	 * @param string $value
@@ -61,7 +60,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 		return array_key_exists('mch_id', $this->values);
 	}
 
-
 	/**
 	 * 设置微信支付分配的终端设备号，商户自定义
 	 * @param string $value
@@ -88,7 +86,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 	{
 		return array_key_exists('device_info', $this->values);
 	}
-
 
 	/**
 	 * 设置随机字符串，不长于32位。推荐随机数生成算法
@@ -144,7 +141,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 		return array_key_exists('body', $this->values);
 	}
 
-
 	/**
 	 * 设置商品名称明细列表
 	 * @param string $value
@@ -171,7 +167,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 	{
 		return array_key_exists('detail', $this->values);
 	}
-
 
 	/**
 	 * 设置附加数据，在查询API和支付通知中原样返回，该字段主要用于商户携带订单的自定义数据
@@ -200,7 +195,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 		return array_key_exists('attach', $this->values);
 	}
 
-
 	/**
 	 * 设置商户系统内部的订单号,32个字符内、可包含字母, 其他说明见商户订单号
 	 * @param string $value
@@ -227,7 +221,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 	{
 		return array_key_exists('out_trade_no', $this->values);
 	}
-
 
 	/**
 	 * 设置符合ISO 4217标准的三位字母代码，默认人民币：CNY，其他值列表详见货币类型
@@ -256,7 +249,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 		return array_key_exists('fee_type', $this->values);
 	}
 
-
 	/**
 	 * 设置订单总金额，只能为整数，详见支付金额
 	 * @param string $value
@@ -283,7 +275,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 	{
 		return array_key_exists('total_fee', $this->values);
 	}
-
 
 	/**
 	 * 设置APP和网页支付提交用户端ip，Native支付填调用微信支付API的机器IP。
@@ -312,7 +303,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 		return array_key_exists('spbill_create_ip', $this->values);
 	}
 
-
 	/**
 	 * 设置订单生成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。其他详见时间规则
 	 * @param string $value
@@ -321,7 +311,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 	{
 		$this->values['time_start'] = $value;
 	}
-
 
 	/**
 	 * 获取订单生成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。其他详见时间规则的值
@@ -340,7 +329,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 	{
 		return array_key_exists('time_start', $this->values);
 	}
-
 
 	/**
 	 * 设置订单失效时间，格式为yyyyMMddHHmmss，如2009年12月27日9点10分10秒表示为20091227091010。其他详见时间规则
@@ -369,7 +357,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 		return array_key_exists('time_expire', $this->values);
 	}
 
-
 	/**
 	 * 设置商品标记，代金券或立减优惠功能的参数，说明详见代金券或立减优惠
 	 * @param string $value
@@ -396,7 +383,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 	{
 		return array_key_exists('goods_tag', $this->values);
 	}
-
 
 	/**
 	 * 设置接收微信支付异步通知回调地址
@@ -425,7 +411,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 		return array_key_exists('notify_url', $this->values);
 	}
 
-
 	/**
 	 * 设置取值如下：JSAPI，NATIVE，APP，详细说明见参数规定
 	 * @param string $value
@@ -453,7 +438,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 		return array_key_exists('trade_type', $this->values);
 	}
 
-
 	/**
 	 * 设置trade_type=NATIVE，此参数必传。此id为二维码中包含的商品ID，商户自行定义。
 	 * @param string $value
@@ -480,7 +464,6 @@ class WxPayUnifiedOrder extends WxPayDataBase
 	{
 		return array_key_exists('product_id', $this->values);
 	}
-
 
 	/**
 	 * 设置trade_type=JSAPI，此参数必传，用户在商户appid下的唯一标识。下单前需要调用【网页授权获取用户信息】接口获取到用户的Openid。

@@ -34,7 +34,6 @@ class WxPayJsApiPay extends WxPayDataBase
 		return array_key_exists('appId', $this->values);
 	}
 
-
 	/**
 	 * 设置支付时间戳
 	 *
@@ -90,7 +89,6 @@ class WxPayJsApiPay extends WxPayDataBase
 	{
 		return array_key_exists('nonceStr', $this->values);
 	}
-
 
 	/**
 	 * 设置订单详情扩展字符串

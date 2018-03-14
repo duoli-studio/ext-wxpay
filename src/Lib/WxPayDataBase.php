@@ -1,4 +1,5 @@
 <?php namespace Poppy\Extension\Wxpay\Lib;
+
 /**
  * 数据对象基础类，该类中定义数据类最基本的行为，包括：
  * 计算/设置/获取签名、输出xml格式的参数、从xml读取数据对象等
@@ -19,6 +20,7 @@ class WxPayDataBase
 	{
 		$sign                 = $this->MakeSign($key);
 		$this->values['sign'] = $sign;
+
 		return $sign;
 	}
 
@@ -48,19 +50,20 @@ class WxPayDataBase
 	{
 		if (!is_array($this->values)
 			|| count($this->values) <= 0) {
-			throw new WxPayException("数组数据异常！");
+			throw new WxPayException('数组数据异常！');
 		}
 
-		$xml = "<xml>";
+		$xml = '<xml>';
 		foreach ($this->values as $key => $val) {
 			if (is_numeric($val)) {
-				$xml .= "<" . $key . ">" . $val . "</" . $key . ">";
+				$xml .= '<' . $key . '>' . $val . '</' . $key . '>';
 			}
 			else {
-				$xml .= "<" . $key . "><![CDATA[" . $val . "]]></" . $key . ">";
+				$xml .= '<' . $key . '><![CDATA[' . $val . ']]></' . $key . '>';
 			}
 		}
-		$xml .= "</xml>";
+		$xml .= '</xml>';
+
 		return $xml;
 	}
 
@@ -75,12 +78,13 @@ class WxPayDataBase
 	public function FromXml($xml)
 	{
 		if (!$xml) {
-			throw new WxPayException("xml数据异常！");
+			throw new WxPayException('xml数据异常！');
 		}
 		//将XML转为array
 		//禁止引用外部xml实体
 		libxml_disable_entity_loader(true);
 		$this->values = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+
 		return $this->values;
 	}
 
@@ -89,14 +93,15 @@ class WxPayDataBase
 	 */
 	public function ToUrlParams()
 	{
-		$buff = "";
+		$buff = '';
 		foreach ($this->values as $k => $v) {
-			if ($k != "sign" && $v != "" && !is_array($v)) {
-				$buff .= $k . "=" . $v . "&";
+			if ($k != 'sign' && $v != '' && !is_array($v)) {
+				$buff .= $k . '=' . $v . '&';
 			}
 		}
 
-		$buff = trim($buff, "&");
+		$buff = trim($buff, '&');
+
 		return $buff;
 	}
 
@@ -113,11 +118,12 @@ class WxPayDataBase
 		ksort($this->values);
 		$string = $this->ToUrlParams();
 		// 签名步骤二：在string后加入KEY
-		$string = $string . "&key=" . $key;
+		$string = $string . '&key=' . $key;
 		// 签名步骤三：MD5加密
 		$string = md5($string);
 		// 签名步骤四：所有字符转为大写
 		$result = strtoupper($string);
+
 		return $result;
 	}
 

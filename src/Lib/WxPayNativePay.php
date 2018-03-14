@@ -28,10 +28,10 @@ class WxPayNativePay
 			return '';
 		}
 
-		$url = "weixin://wxpay/bizpayurl?" . $this->ToUrlParams($values);
+		$url = 'weixin://wxpay/bizpayurl?' . $this->ToUrlParams($values);
+
 		return $url;
 	}
-
 
 	/**
 	 * 生成直接支付url，支付url有效期为2小时,模式二
@@ -42,7 +42,7 @@ class WxPayNativePay
 	 */
 	public function GetPayUrl($input)
 	{
-		if ($input->GetTrade_type() == "NATIVE" || $input->GetTrade_type() == "APP") {
+		if ($input->GetTrade_type() == 'NATIVE' || $input->GetTrade_type() == 'APP') {
 			$request = new WxPayRequest();
 			$request->setConfig($this->config);
 			try {
@@ -53,6 +53,7 @@ class WxPayNativePay
 
 			return $result;
 		}
+
 		return null;
 	}
 
@@ -70,12 +71,13 @@ class WxPayNativePay
 	 */
 	private function ToUrlParams($urlObj)
 	{
-		$buff = "";
+		$buff = '';
 		foreach ($urlObj as $k => $v) {
-			$buff .= $k . "=" . $v . "&";
+			$buff .= $k . '=' . $v . '&';
 		}
 
-		$buff = trim($buff, "&");
+		$buff = trim($buff, '&');
+
 		return $buff;
 	}
 }

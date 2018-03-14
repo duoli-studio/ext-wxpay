@@ -34,7 +34,6 @@ class WxPayShortUrl extends WxPayDataBase
 		return array_key_exists('appid', $this->values);
 	}
 
-
 	/**
 	 * 设置微信支付分配的商户号
 	 *
@@ -63,7 +62,6 @@ class WxPayShortUrl extends WxPayDataBase
 		return array_key_exists('mch_id', $this->values);
 	}
 
-
 	/**
 	 * 设置需要转换的URL，签名用原串，传输需URL encode
 	 *
@@ -91,7 +89,6 @@ class WxPayShortUrl extends WxPayDataBase
 	{
 		return array_key_exists('long_url', $this->values);
 	}
-
 
 	/**
 	 * 设置随机字符串，不长于32位。推荐随机数生成算法

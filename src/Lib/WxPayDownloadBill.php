@@ -34,7 +34,6 @@ class WxPayDownloadBill extends WxPayDataBase
 		return array_key_exists('appid', $this->values);
 	}
 
-
 	/**
 	 * 设置微信支付分配的商户号
 	 *
@@ -63,7 +62,6 @@ class WxPayDownloadBill extends WxPayDataBase
 		return array_key_exists('mch_id', $this->values);
 	}
 
-
 	/**
 	 * 设置微信支付分配的终端设备号，填写此字段，只下载该设备号的对账单
 	 *
@@ -91,7 +89,6 @@ class WxPayDownloadBill extends WxPayDataBase
 	{
 		return array_key_exists('device_info', $this->values);
 	}
-
 
 	/**
 	 * 设置随机字符串，不长于32位。推荐随机数生成算法
@@ -148,7 +145,6 @@ class WxPayDownloadBill extends WxPayDataBase
 	{
 		return array_key_exists('bill_date', $this->values);
 	}
-
 
 	/**
 	 * 设置ALL，返回当日所有订单信息，默认值SUCCESS，返回当日成功支付的订单REFUND，返回当日退款订单REVOKED，已撤销的订单

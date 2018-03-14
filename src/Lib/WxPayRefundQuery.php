@@ -34,7 +34,6 @@ class WxPayRefundQuery extends WxPayDataBase
 		return array_key_exists('appid', $this->values);
 	}
 
-
 	/**
 	 * 设置微信支付分配的商户号
 	 *
@@ -63,7 +62,6 @@ class WxPayRefundQuery extends WxPayDataBase
 		return array_key_exists('mch_id', $this->values);
 	}
 
-
 	/**
 	 * 设置微信支付分配的终端设备号
 	 *
@@ -91,7 +89,6 @@ class WxPayRefundQuery extends WxPayDataBase
 	{
 		return array_key_exists('device_info', $this->values);
 	}
-
 
 	/**
 	 * 设置随机字符串，不长于32位。推荐随机数生成算法
@@ -149,7 +146,6 @@ class WxPayRefundQuery extends WxPayDataBase
 		return array_key_exists('transaction_id', $this->values);
 	}
 
-
 	/**
 	 * 设置商户系统内部的订单号
 	 *
@@ -178,7 +174,6 @@ class WxPayRefundQuery extends WxPayDataBase
 		return array_key_exists('out_trade_no', $this->values);
 	}
 
-
 	/**
 	 * 设置商户退款单号
 	 *
@@ -206,7 +201,6 @@ class WxPayRefundQuery extends WxPayDataBase
 	{
 		return array_key_exists('out_refund_no', $this->values);
 	}
-
 
 	/**
 	 * 设置微信退款单号refund_id、out_refund_no、out_trade_no、transaction_id四个参数必填一个，如果同时存在优先级为：refund_id>out_refund_no>transaction_id>out_trade_no

@@ -3,7 +3,6 @@
 //APP支付参数
 class WxPayAppApiPay extends WxPayDataBase
 {
-
 	public function SetAppid($value)
 	{
 		$this->values['appid'] = $value;
@@ -28,6 +27,7 @@ class WxPayAppApiPay extends WxPayDataBase
 	{
 		$sign                 = $this->MakeNewSign($key);
 		$this->values['sign'] = $sign;
+
 		return $sign;
 	}
 
@@ -52,12 +52,13 @@ class WxPayAppApiPay extends WxPayDataBase
 		ksort($this->values);
 		$string = $this->ToUrlParams();
 		//签名步骤二：在string后加入KEY
-		$string = $string . "&key=" . $key;
+		$string = $string . '&key=' . $key;
 		// dd($string);
 		//签名步骤三：MD5加密
 		$string = md5($string);
 		//签名步骤四：所有字符转为大写
 		$result = strtoupper($string);
+
 		return $result;
 	}
 }
