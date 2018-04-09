@@ -1,6 +1,7 @@
 {
 	"name": "poppy/ext-wxpay",
 	"description": "Poppy Weixin Pay Extension.",
+	"license": "MIT",
 	"type": "poppy-extension",
 	"authors": [
 		{
