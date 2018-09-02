@@ -1,33 +1,24 @@
 {
-	"name": "poppy/ext-wxpay",
-	"description": "Poppy Weixin Pay Extension.",
-	"license": "MIT",
-	"type": "poppy-extension",
-	"authors": [
+	"name" : "poppy/ext-wxpay",
+	"description" : "Poppy Weixin Pay Extension.",
+	"license" : "MIT",
+	"authors" : [
 		{
-			"name": "Mark Zhao",
-			"email": "zhaody901@126.com"
+			"name" : "Mark Zhao",
+			"email" : "zhaody901@126.com"
 		}
 	],
-	"require": {
-		"php": ">=7.0.0"
+	"require" : {
+		"php" : ">=7.0.0"
 	},
-	"autoload": {
-		"psr-4": {
-			"Poppy\\Extension\\Wxpay\\": "src/"
+	"autoload" : {
+		"psr-4" : {
+			"Poppy\\Extension\\Wxpay\\" : "src/",
+			"Poppy\\Extension\\Wxpay\\Tests\\" : "tests/"
 		}
 	},
-	"config": {
-		"preferred-install": "dist"
+	"config" : {
+		"preferred-install" : "dist"
 	},
-	"minimum-stability": "dev",
-	"repositories": [
-		{
-			"type": "composer",
-			"url": "https://packagist.laravel-china.org"
-		},
-		{
-			"packagist": false
-		}
-	]
+	"minimum-stability" : "dev"
 }
