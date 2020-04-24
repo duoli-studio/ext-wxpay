@@ -46,6 +46,7 @@ class WxPayConfig
 	| 默认 HOST = 0.0.0.0 和 PORT = 0，此时不开启代理（如有需要才设置）
 	|
 	*/
+
 	/**
 	 * @var string curl代理Host
 	 */

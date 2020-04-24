@@ -1,5 +1,7 @@
 <?php namespace Poppy\Extension\Wxpay\Lib;
 
+use Exception;
+
 /**
  * 支付实现类
  * @package App\Lemon\Repositories\Vendor\WxPay
@@ -24,7 +26,7 @@ class WxPayNativePay
 
 		try {
 			$values = $request->bizpayurl($biz);
-		} catch (\Exception $e) {
+		} catch (Exception $e) {
 			return '';
 		}
 
@@ -47,7 +49,7 @@ class WxPayNativePay
 			$request->setConfig($this->config);
 			try {
 				$result = $request->unifiedOrder($input, 30);
-			} catch (\Exception $e) {
+			} catch (Exception $e) {
 				return null;
 			}
 
